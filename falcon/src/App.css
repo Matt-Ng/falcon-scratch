@@ -130,6 +130,25 @@ nav div{
   margin: 20px;
 }
 
+.startBut{
+  position: relative;
+  width: 10vh;
+  left: 80vh;
+  top: 40vh;
+  border: 2px solid black;
+  border-radius: 35px;
+  font-family: 'Helvetica', Sans-Serif;
+  display: flexs;
+  align-items: center;
+  line-height: 45px;
+  font-size: 38px;
+  margin: 10 20px;
+}
+.startBut:hover {
+  color: #ffffff;
+  background: #000000;
+}
+
 .timer{
   width : 600px;
   height: 100px;
@@ -140,6 +159,15 @@ nav div{
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 300px;
-  top: 200px;
+  margin: 2vh;
+  left: 40%;
+  top: 30vh;
+}
+
+.upload{
+  width : 600px;
+  height: 100px;
+  position: relative;
+  left: 45%;
+  top: 30vh;
 }

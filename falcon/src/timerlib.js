@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 
 export function getRemainingTime(timeMS) {
-    const time = dayjs(timeMS+60000*5);
+    const time = dayjs(timeMS);
     const cur = dayjs();
 
     if(time.isBefore(cur)) {
