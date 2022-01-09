@@ -96,7 +96,7 @@ function Start() {
     const done2 = await res2.json();
     const reso2 = done2.daLeaderboard;
     console.log(reso2)
-    alert(`Congratulations chunky charles. Your score was ${score} according to algorithm. The leaderboard is now ${reso2}`)
+    alert(`Congratulations chunky charles. Your score was ${score} according to the algorithm. The leaderboard is now ${reso2}`)
   };
 
   return (
