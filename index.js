@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 app.use(express.static('public'));
 app.use(express.json());
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9000;
 
 const { mongoUsername, mongoPassword } = require('./config'); 
 const aws = require('aws-sdk');
@@ -51,9 +51,32 @@ app.listen(port, () => {
 	console.log(`App listening on port ${port}!`);
 });	
 
+app.get('/expressBackend', (req, res) => {
+	res.send({express: "Express is now connected to React"});
+});
+
+app.post('/getRandomText', async (req, res) => {
+	let textData;
+	try {
+		let id = req.body.id;
+		if(id === '-1'){
+			console.log("rando")
+			id = (Math.floor((Math.random()) * (6)) + 1).toString();
+		}
+		const data = await text.find({}).exec();
+		textData = data[id];
+		console.log(textData);
+	}
+	catch(err){
+		console.log("error: " + err);
+	}
+	
+    res.json(textData);
+})
+
 app.get('/', async (req, res) => {
 	res.sendFile(`${__dirname}/public/start.html`);
-})
+});
 
 app.get('/api', async (req, res) => {
 	try {
@@ -63,7 +86,7 @@ app.get('/api', async (req, res) => {
 	catch(err) {
 		console.log("error: " + err);
 	} 
-})
+});
 
 app.post('/imgCompare', async (req, res) => {
 	let str = "";

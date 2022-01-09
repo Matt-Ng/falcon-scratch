@@ -55,23 +55,20 @@ nav ul li a:hover::after{
 nav div{
   padding: 1px;
   position: absolute;
-  background-image: url(logo.png);
   background-size:  cover;
   background-position: left;
   background-repeat: no-repeat;
 
 }
 
-.sec1 div{
+.sec1{
   position: relative;
-  height: 600px;
-  background-image: url(falcon.png);
   background-size:  cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.sec1 div h1{
+.sec1 h1{
   font-size: 120px;
   font-family: 'Helvetica', Sans-Serif;
   left: 800px;
@@ -114,10 +111,11 @@ nav div{
 }
 
 .boxes{
-  position: fixed;
-  left: 500px;
+  margin-left: auto;
+  margin-right: auto;
   display: inline-flex;
   padding: 20px;
+  justify-content: center;
 
 }
 .box{
@@ -140,6 +138,24 @@ nav div{
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 300px;
-  top: 200px;
+  padding: 10px;
+  margin: auto;
+}
+
+.passage{
+  text-align: center;
+  padding: 10px;
+}
+
+.entire-page{
+  overflow: auto;
+}
+
+.randomizeButton{
+  background-color: #303031;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 47%;
+  padding: 30px;
 }

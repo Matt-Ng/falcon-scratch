@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "npx concurrently \"npx nodemon index.js\" \"cd falcon && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,11 +21,15 @@
   "dependencies": {
     "@aws-sdk/client-textract": "^3.46.0",
     "aws-sdk": "^2.1053.0",
+    "dayjs": "^1.10.7",
     "express": "^4.17.2",
     "index.js": "^0.0.3",
     "mongoose": "^6.1.5",
     "node-fetch": "^2.6.1",
     "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.66.4",
+    "react-router-dom": "^6.2.1",
     "touch": "^3.1.0"
   }
 }

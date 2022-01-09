@@ -8,6 +8,7 @@ function Nav() {
   return (
     <nav>
         <div>
+        <h1>Falcon Scratch.</h1>
         </div>
         <ul>
             <li><Link to="/">Home</Link></li>
