@@ -49,7 +49,7 @@ async function leaderboardUpdate(id, score){
     const res = await fetch('/updateScore', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)});
 }
 
-async function main(){
+async function main(){  
     try{
         let data = await getRandomText();
         console.log(data.content)

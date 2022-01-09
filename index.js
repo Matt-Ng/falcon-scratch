@@ -61,17 +61,55 @@ app.post('/getRandomText', async (req, res) => {
 		let id = req.body.id;
 		if(id === '-1'){
 			console.log("rando")
-			id = (Math.floor((Math.random()) * (6)) + 1).toString();
+			id = (Math.floor((Math.random()) * (6))).toString();
+			console.log("id " +id)
 		}
 		const data = await text.find({}).exec();
+		console.log(data)
 		textData = data[id];
 		console.log(textData);
 	}
 	catch(err){
 		console.log("error: " + err);
 	}
+	console.log("result id: " + textData.id)
 	
     res.json(textData);
+})
+
+app.post('/getImage', async (req, res) => {
+	let str = ""
+	try{/*
+		const img = req.body;
+		console.log(img)*/
+		console.log(req.body.text)
+		const text = req.body.text;
+		let filename = "";
+		if(text.includes("Schau")){
+			filename = "./german.jpeg";
+		}
+		else if(text.includes("You might think you've peeped the scene")){
+			filename = "./cinderella.png";
+		}
+		else if(text.includes("Giovanni Giorgio")){
+			filename = "./giorgio.jpeg"
+		}
+		else{
+			filename = "./aurora.png"
+		}
+		const imgBuffer = await fs.readFile(filename);
+		const res = await textract.detectDocumentText({Document: {Bytes: imgBuffer}}).promise();
+		let blocks = res.Blocks;
+		for(const block of blocks){
+			if (block.BlockType === 'LINE'){
+				str += block.Text + " ";
+			}
+		}
+	}
+	catch(err){
+		console.log("error: " + err);
+	}
+	res.send({result: str});
 })
 
 app.get('/', async (req, res) => {
@@ -111,6 +149,7 @@ app.post('/imgCompare', async (req, res) => {
 });
 
 app.post('/updateScore', async (req, res) => {
+	let daLeaderboard;
 	try {
 		let id = req.body.id;
 		let score = req.body.score;
@@ -134,6 +173,7 @@ app.post('/updateScore', async (req, res) => {
 		if(leaderboard.length > 10){
 			leaderboard.pop();
 		}
+		daLeaderboard = leaderboard
 		
 		let newObj = {board: leaderboard};
 		text.updateOne({id}, {$set: {leaderboard: JSON.stringify(newObj)}}, (err) => {
@@ -145,5 +185,5 @@ app.post('/updateScore', async (req, res) => {
 	catch(err) {
 		console.log("error: " + err);
 	}
-	res.json({message: "success"});
+	res.send({daLeaderboard});
 });

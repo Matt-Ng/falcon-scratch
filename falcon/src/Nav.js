@@ -14,7 +14,7 @@ function Nav() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/start">Start</Link></li>
             <li><Link to="/about">About Us</Link></li>
-            <li>Login</li>
+            <li>Welcome, chunky charles</li>
             
         </ul>
     </nav>
