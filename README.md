@@ -1,6 +1,6 @@
 # Falcon Scratch
 
-The boardroom meeting notetakers. Doctors notes. CODING INTERVIEWS. Testtaking, foreign language learners. What do all these things have common? 
+The boardroom meeting notetakers. Doctors notes. CODING INTERVIEWS. test taking, foreign language learners. What do all these things have common? 
 
 ## Everybodys career benefits from some good handwriting!
 
